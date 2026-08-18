@@ -1,0 +1,845 @@
+:root {
+    --navy: #071a2d;
+    --navy-light: #0d2942;
+    --gold: #d6a84f;
+    --gold-light: #f1d28a;
+    --cream: #faf7ef;
+    --white: #ffffff;
+    --text: #263238;
+    --muted: #69747c;
+    --border: rgba(214, 168, 79, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+
+    background: rgba(7,26,45,0.85);
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.08);
+    background: var(--gold);
+    color: var(--navy);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 20%, rgba(214,168,79,0.2), transparent 35%),
+        linear-gradient(135deg, #071a2d, #0d2942);
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    opacity: 0.4;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(7,26,45,0.8)
+        );
+}
+
+.hero-content {
+    position: relative;
+
+    max-width: 950px;
+
+    padding: 80px 25px;
+
+    z-index: 2;
+
+    animation: heroEnter 1.3s ease;
+}
+
+.small-label,
+.section-label {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    font-weight: 700;
+
+    color: var(--gold-light);
+
+    margin-bottom: 25px;
+}
+
+.crown {
+    font-size: 32px;
+
+    color: var(--gold);
+
+    margin-bottom: 10px;
+
+    animation: sparkle 2s infinite;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 8vw, 105px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+.hero-message {
+    max-width: 650px;
+
+    margin: 35px auto;
+
+    font-size: 18px;
+
+    color: rgba(255,255,255,0.85);
+}
+
+.divider {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    width: 80px;
+
+    height: 1px;
+
+    background: var(--gold);
+}
+
+.divider span {
+    color: var(--gold);
+}
+
+.family-signature {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    color: var(--gold-light);
+}
+
+.scroll-button {
+    margin-top: 40px;
+
+    padding: 15px 28px;
+
+    border: 1px solid var(--gold);
+
+    background: transparent;
+
+    color: white;
+
+    border-radius: 40px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    font-size: 14px;
+}
+
+.scroll-button span {
+    margin-left: 10px;
+}
+
+.scroll-button:hover {
+    background: var(--gold);
+
+    color: var(--navy);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.section-container {
+    width: min(1150px, 90%);
+
+    margin: auto;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    padding: 120px 0;
+
+    text-align: center;
+
+    background: var(--cream);
+}
+
+.intro .section-container {
+    max-width: 850px;
+}
+
+.intro h2,
+.section-heading h2,
+.closing h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(45px, 6vw, 75px);
+
+    font-weight: 500;
+
+    line-height: 1.05;
+
+    color: var(--navy);
+
+    margin-bottom: 30px;
+}
+
+.intro h2 span,
+.section-heading h2 span,
+.closing h2 span {
+    color: var(--gold);
+
+    font-style: italic;
+}
+
+.intro p {
+    color: var(--muted);
+
+    font-size: 17px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   WISHES
+========================= */
+
+.wishes-section {
+    padding: 110px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f3eee2 0%,
+            #faf7ef 100%
+        );
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 70px;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    font-size: 17px;
+}
+
+.wishes-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.wish-card {
+    position: relative;
+
+    padding: 45px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 15px 45px rgba(7,26,45,0.07);
+
+    border-radius: 4px;
+
+    transition: 0.4s;
+
+    overflow: hidden;
+}
+
+.wish-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background: var(--gold);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.4s;
+}
+
+.wish-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(7,26,45,0.12);
+}
+
+.wish-card:hover::before {
+    transform: scaleX(1);
+}
+
+.wish-card.featured {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fdf9ef
+        );
+}
+
+.wish-card.featured-large {
+    grid-column: 1 / -1;
+}
+
+.wish-number {
+    position: absolute;
+
+    right: 25px;
+    top: 20px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 50px;
+
+    color: rgba(214,168,79,0.13);
+
+    font-weight: 700;
+}
+
+.wish-icon {
+    font-size: 27px;
+
+    margin-bottom: 20px;
+}
+
+.wish-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.wish-content p {
+    margin-bottom: 18px;
+
+    color: #4f5a61;
+
+    font-size: 15px;
+}
+
+.wish-content h3 {
+    font-family: "Cormorant Garamond", serif;
+
+    color: var(--navy);
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+
+    line-height: 1.2;
+}
+
+.wish-content strong {
+    color: var(--navy);
+}
+
+.wish-content .opening {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 25px;
+
+    color: var(--navy);
+
+    font-weight: 600;
+}
+
+.special-line {
+    color: var(--navy) !important;
+
+    font-weight: 700;
+}
+
+.closing-wish {
+    font-weight: 800;
+
+    color: var(--navy) !important;
+
+    font-size: 17px !important;
+}
+
+.wish-author {
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eee;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.wish-author span {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+}
+
+.wish-author strong {
+    margin-top: 3px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 22px;
+
+    color: var(--navy);
+}
+
+
+/* =========================
+   FAMILY MESSAGE
+========================= */
+
+.family-message {
+    position: relative;
+
+    padding: 140px 0;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071a2d,
+            #0b304c
+        );
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.family-message::before {
+    content: "♥";
+
+    position: absolute;
+
+    font-size: 500px;
+
+    color: rgba(214,168,79,0.025);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.message-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+}
+
+.quote-mark {
+    font-family: Georgia, serif;
+
+    color: var(--gold);
+
+    font-size: 100px;
+
+    height: 70px;
+}
+
+blockquote {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(35px, 5vw, 60px);
+
+    line-height: 1.1;
+
+    font-style: italic;
+
+    color: white;
+}
+
+.quote-line {
+    width: 70px;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    margin: 35px auto;
+}
+
+.message-content p {
+    color: rgba(255,255,255,0.7);
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing {
+    padding: 120px 0;
+
+    text-align: center;
+
+    background: var(--cream);
+}
+
+.sparkle {
+    font-size: 35px;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+}
+
+.closing p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: var(--muted);
+
+    font-size: 17px;
+}
+
+.hearts {
+    margin: 35px 0;
+
+    color: #c08b2f;
+
+    font-size: 20px;
+}
+
+.closing h3 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 36px;
+
+    color: var(--navy);
+
+    margin-bottom: 10px;
+}
+
+.closing-small {
+    font-style: italic;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 21px !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+
+    background: #051321;
+
+    color: rgba(255,255,255,0.55);
+
+    text-align: center;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+footer p:first-child {
+    margin-bottom: 5px;
+
+    color: var(--gold-light);
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+#confetti-container {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+}
+
+.confetti {
+    position: absolute;
+
+    width: 8px;
+
+    height: 14px;
+
+    top: -20px;
+
+    animation: fall linear forwards;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes heroEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+
+}
+
+@keyframes fall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .hero {
+        min-height: 95vh;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 14vw, 75px);
+
+        letter-spacing: -2px;
+    }
+
+    .hero-message {
+        font-size: 16px;
+    }
+
+    .wishes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wish-card.featured-large {
+        grid-column: auto;
+    }
+
+    .wish-card {
+        padding: 30px;
+    }
+
+    .intro,
+    .wishes-section,
+    .closing {
+        padding: 80px 0;
+    }
+
+    .family-message {
+        padding: 100px 0;
+    }
+
+    blockquote {
+        font-size: 36px;
+    }
+
+    .music-btn {
+        right: 15px;
+        top: 15px;
+
+        width: 45px;
+        height: 45px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .small-label,
+    .section-label {
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .wish-card {
+        padding: 25px 22px;
+    }
+
+    .wish-content p {
+        font-size: 14px;
+    }
+
+    .closing h3 {
+        font-size: 29px;
+    }
+
+}
